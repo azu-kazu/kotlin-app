@@ -49,8 +49,5 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-jib {
-    to {
-        image = "360616033874.dkr.ecr.ap-northeast-1.amazonaws.com/kotlin-app"
-    }
-}
+jib.from.image = "360616033874.dkr.ecr.ap-northeast-1.amazonaws.com/kotlin-base-image:6f1490c8ef0f4da44eb9048d1ac38c44812e5641"
+jib.to.image = "360616033874.dkr.ecr.ap-northeast-1.amazonaws.com/kotlin-app"
