@@ -1,0 +1,11 @@
+version: '3'
+services:
+  kotlin-app:
+    container_name: kotlin-app
+    image: 360616033874.dkr.ecr.ap-northeast-1.amazonaws.com/kotlin-app
+    volumes:
+      - "./build/libs/kotlin-app-0.0.1-SNAPSHOT.jar:/usr/local/app/kotlin-app.jar"
+    command: bash -c "java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 /usr/local/app/kotlin-app.jar"
+    ports:
+      - "18080:8080"
+      - "15005:5005"
