@@ -5,6 +5,8 @@ plugins {
     id("io.spring.dependency-management") version "1.0.9.RELEASE"
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
+
+    id("com.google.cloud.tools.jib") version "2.4.0"
 }
 
 group = "com.azukazu"
@@ -44,5 +46,11 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
+    }
+}
+
+jib {
+    to {
+        image = "360616033874.dkr.ecr.ap-northeast-1.amazonaws.com/kotlin-app"
     }
 }
